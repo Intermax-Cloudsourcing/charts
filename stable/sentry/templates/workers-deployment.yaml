@@ -75,9 +75,9 @@ spec:
               name: {{ template "sentry.fullname" . }}
               key: sentry-secret
         - name: SENTRY_DB_USER
-          value: {{ default "sentry" .Values.postgresql.postgresqlUsername | quote }}
+          value: {{ default "sentry" .Values.postgresql.username | quote }}
         - name: SENTRY_DB_NAME
-          value: {{ default "sentry" .Values.postgresql.postgresqlDatabase | quote }}
+          value: {{ default "sentry" .Values.postgresql.database | quote }}
         - name: SENTRY_DB_PASSWORD
           valueFrom:
             secretKeyRef:

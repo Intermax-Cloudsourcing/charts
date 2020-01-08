@@ -192,12 +192,12 @@ ingress:
 postgresql:
   enabled: true
   nameOverride: sentry-postgresql
-  postgresqlDatabase: sentry
-  postgresqlUsername: postgres
+  database: sentry
+  username: postgres
   # Only used when internal PG is disabled
-  # postgresqlHost: postgres
-  # postgresqlPassword: postgres
-  # postgresqlPort: 5432
+  # host: postgres
+  # password: postgres
+  # port: 5432
 
 redis:
   enabled: true

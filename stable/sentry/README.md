@@ -123,11 +123,11 @@ Parameter                                            | Description              
 `ingress.path`                                       | path to address your Sentry installation                                                                   | `/`
 `ingress.tls`                                        | Ingress TLS configuration                                                                                  | `[]`
 `postgresql.enabled`                                 | Deploy postgres server (see below)                                                                         | `true`
-`postgresql.postgresqlDatabase`                      | Postgres database name                                                                                     | `sentry`
-`postgresql.postgresqlUsername`                      | Postgres username                                                                                          | `postgres`
-`postgresql.postgresqlHost`                          | External postgres host                                                                                     | `nil`
-`postgresql.postgresqlPassword`                      | External/Internal postgres password                                                                                 | `nil`
-`postgresql.postgresqlPort`                          | External postgres port                                                                                     | `5432`
+`postgresql.database`                      | Postgres database name                                                                                     | `sentry`
+`postgresql.username`                      | Postgres username                                                                                          | `postgres`
+`postgresql.host`                          | External postgres host                                                                                     | `nil`
+`postgresql.password`                      | External/Internal postgres password                                                                                 | `nil`
+`postgresql.port`                          | External postgres port                                                                                     | `5432`
 `redis.enabled`                                      | Deploy redis server (see below)                                                                            | `true`
 `redis.host`                                         | External redis host                                                                                        | `nil`
 `redis.password`                                     | External redis password                                                                                    | `nil`
@@ -195,9 +195,9 @@ $ helm install --name my-release -f values.yaml stable/sentry
 
 ## PostgresSQL
 
-By default, PostgreSQL is installed as part of the chart. To use an external PostgreSQL server set `postgresql.enabled` to `false` and then set `postgresql.postgresHost` and `postgresql.postgresqlPassword`. The other options (`postgresql.postgresqlDatabase`, `postgresql.postgresqlUsername` and `postgresql.postgresqlPort`) may also want changing from their default values.
+By default, PostgreSQL is installed as part of the chart. To use an external PostgreSQL server set `postgresql.enabled` to `false` and then set `postgresql.postgresHost` and `postgresql.password`. The other options (`postgresql.database`, `postgresql.username` and `postgresql.port`) may also want changing from their default values.
 
-To avoid issues when upgrade this chart, provide `postgresql.postgresqlPassword` for subsequent upgrades. This is due to an issue in the PostgreSQL chart where password will be overwritten with randomly generated passwords otherwise. See https://github.com/helm/charts/tree/master/stable/postgresql#upgrade for more detail.
+To avoid issues when upgrade this chart, provide `postgresql.password` for subsequent upgrades. This is due to an issue in the PostgreSQL chart where password will be overwritten with randomly generated passwords otherwise. See https://github.com/helm/charts/tree/master/stable/postgresql#upgrade for more detail.
 
 ## Redis
 
